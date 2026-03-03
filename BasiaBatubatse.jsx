@@ -864,7 +864,36 @@ export default function BasiaBatubatse() {
     { icon: "💬", title: "Direct Communication", desc: "Responsive at every stage of engagement." },
   ];
 
-  const handleSubmit = (e) => { e.preventDefault(); alert("Thank you! We will be in touch shortly."); };
+  const [formStatus, setFormStatus] = useState("idle"); // idle | loading | success | error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus("loading");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_WEB3FORMS_KEY",
+          subject: `New enquiry from ${formData.name} — Basia Batubatse Consulting`,
+          from_name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          botcheck: "",
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setFormStatus("success");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
+  };
 
   return (
     <>
@@ -1190,7 +1219,26 @@ export default function BasiaBatubatse() {
                 <label>Message</label>
                 <textarea placeholder="Tell us about your case management needs…" value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })} required />
               </div>
-              <button type="submit" className="submit-btn">Send Message</button>
+              {/* Honeypot anti-spam */}
+              <input type="checkbox" name="botcheck" style={{ display: "none" }} />
+              {formStatus === "success" && (
+                <div style={{ background: "rgba(201,168,76,0.12)", border: "1px solid rgba(201,168,76,0.4)", padding: "16px 20px", color: "var(--gold-light)", fontFamily: "var(--serif)", fontSize: "15px", fontStyle: "italic" }}>
+                  ✓ Thank you! Your message has been sent. We'll respond within one business day.
+                </div>
+              )}
+              {formStatus === "error" && (
+                <div style={{ background: "rgba(200,50,50,0.1)", border: "1px solid rgba(200,50,50,0.3)", padding: "16px 20px", color: "#e88", fontSize: "13px" }}>
+                  Something went wrong. Please email us directly at <a href="mailto:advise@basiabatubatse.co.za" style={{ color: "var(--gold-light)" }}>advise@basiabatubatse.co.za</a>
+                </div>
+              )}
+              <button
+                type="submit"
+                className="submit-btn"
+                disabled={formStatus === "loading"}
+                style={{ opacity: formStatus === "loading" ? 0.7 : 1, cursor: formStatus === "loading" ? "wait" : "pointer" }}
+              >
+                {formStatus === "loading" ? "Sending…" : formStatus === "success" ? "Message Sent ✓" : "Send Message"}
+              </button>
             </form>
           </div>
         </div>
