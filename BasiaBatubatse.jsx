@@ -63,7 +63,8 @@ body::before {
   position:fixed;
   top:0; left:0; right:0;
   z-index:1000;
-  padding:20px 60px;
+  height:100px;
+  padding:0 60px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -162,7 +163,7 @@ body::before {
   position:relative;
   overflow:hidden;
   background:var(--bg);
-  padding:300px 24px 80px;
+  padding:130px 24px 80px;
 }
 .hero-glow {
   position:absolute;
@@ -602,7 +603,7 @@ body::before {
 }
 
 /* ── NAV LOGO IMG ── */
-.nav-logo-img { height:250px; width:auto; object-fit:contain; }
+.nav-logo-img { height:220px; width:auto; object-fit:contain; }
 
 /* ── HERO CEO BG ── */
 .hero-ceo-bg {
