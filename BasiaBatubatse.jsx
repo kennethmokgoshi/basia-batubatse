@@ -871,18 +871,10 @@ export default function BasiaBatubatse() {
     e.preventDefault();
     setFormStatus("loading");
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/send-email", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_WEB3FORMS_KEY",
-          subject: `New enquiry from ${formData.name} — Basia Batubatse Consulting`,
-          from_name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-          botcheck: "",
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
       const data = await res.json();
       if (data.success) {
