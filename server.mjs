@@ -68,7 +68,7 @@ app.post('/api/send-email', async (req, res) => {
 });
 
 // SPA fallback
-app.get('*', (req, res) => {
+app.get('/{*splat}', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
