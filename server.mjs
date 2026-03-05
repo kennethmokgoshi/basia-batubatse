@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 3000; // Hardcoded to 3000 to match Dokploy configuration and avoid env conflicts
+const PORT = 80; // Reverted to 80 as requested for Dokploy compatibility
 
 app.use(cors());
 app.use(express.json());
