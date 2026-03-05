@@ -26,5 +26,5 @@ COPY --from=builder /app/dist ./dist
 # Copy backend server file
 COPY server.mjs ./
 
-EXPOSE 3001
+EXPOSE 80
 CMD ["node", "server.mjs"]
