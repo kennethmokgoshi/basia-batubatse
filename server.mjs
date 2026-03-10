@@ -41,7 +41,7 @@ app.post('/api/send-email', async (req, res) => {
             port: parseInt(process.env.SMTP_PORT || '587'),
             secure: false,
             auth: {
-                user: process.env.SMTP_USER || 'advise@basiabatubatse.co.za',
+                user: process.env.SMTP_USER || 'claims@basiabatubatse.co.za',
                 pass: process.env.SMTP_PASS,
             },
             tls: {
@@ -50,9 +50,9 @@ app.post('/api/send-email', async (req, res) => {
         });
 
         const mailOptions = {
-            from: `"${name}" <${process.env.SMTP_USER || 'advise@basiabatubatse.co.za'}>`,
+            from: `"${name}" <${process.env.SMTP_USER || 'claims@basiabatubatse.co.za'}>`,
             replyTo: email,
-            to: process.env.EMAIL_TO || 'advise@basiabatubatse.co.za',
+            to: process.env.EMAIL_TO || 'claims@basiabatubatse.co.za',
             subject: `New enquiry from ${name} — Basia Batubatse Consulting`,
             text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\n\nMessage:\n${message}`,
             html: `<h3>New Enquiry</h3><p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Phone:</strong> ${phone || 'N/A'}</p><p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`,

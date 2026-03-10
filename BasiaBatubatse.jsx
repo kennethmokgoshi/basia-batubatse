@@ -1192,8 +1192,7 @@ export default function BasiaBatubatse() {
                 <div>
                   <p className="contact-label">Email</p>
                   <p className="contact-value">
-                    <a href="mailto:basiabatubatsi@outlook.com">basiabatubatsi@outlook.com</a><br />
-                    <a href="mailto:advise@basiabatubatse.co.za">advise@basiabatubatse.co.za</a>
+                    <a href="mailto:claims@basiabatubatse.co.za">claims@basiabatubatse.co.za</a>
                   </p>
                 </div>
               </li>
@@ -1237,7 +1236,7 @@ export default function BasiaBatubatse() {
               )}
               {formStatus === "error" && (
                 <div style={{ background: "rgba(200,50,50,0.1)", border: "1px solid rgba(200,50,50,0.3)", padding: "16px 20px", color: "#e88", fontSize: "13px" }}>
-                  Something went wrong. Please email us directly at <a href="mailto:advise@basiabatubatse.co.za" style={{ color: "var(--gold-light)" }}>advise@basiabatubatse.co.za</a>
+                  Something went wrong. Please email us directly at <a href="mailto:claims@basiabatubatse.co.za" style={{ color: "var(--gold-light)" }}>claims@basiabatubatse.co.za</a>
                 </div>
               )}
               <button
@@ -1263,7 +1262,7 @@ export default function BasiaBatubatse() {
             {navLinks.map((l) => <li key={l.label}><a href={l.href}>{l.label}</a></li>)}
           </ul>
           <div style={{ display: "flex", gap: "14px" }}>
-            <a href="mailto:advise@basiabatubatse.co.za" style={{ color: "rgba(240,235,224,0.4)", fontSize: "18px", textDecoration: "none" }}>✉️</a>
+            <a href="mailto:claims@basiabatubatse.co.za" style={{ color: "rgba(240,235,224,0.4)", fontSize: "18px", textDecoration: "none" }}>✉️</a>
             <a href="tel:+27614686619" style={{ color: "rgba(240,235,224,0.4)", fontSize: "18px", textDecoration: "none" }}>📞</a>
             <a href="https://wa.me/27614686619" target="_blank" rel="noreferrer" style={{ color: "rgba(240,235,224,0.4)", fontSize: "18px", textDecoration: "none" }}>💬</a>
           </div>
