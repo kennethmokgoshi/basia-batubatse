@@ -607,12 +607,22 @@ body::before {
 
 /* ── HERO CEO BG ── */
 .hero-ceo-bg {
-  position:absolute; inset:0;
-  background-image:url('/mahlomola.jpg');
+  position:absolute; inset:-40px;
+  background-image:url('/hero-logo.png');
   background-size:cover;
-  background-position:center 20%;
-  opacity:0.14;
+  background-position:center center;
+  background-repeat:no-repeat;
+  opacity:0.05;
   pointer-events:none;
+  filter:drop-shadow(0 0 30px rgba(201,168,76,0.2)) drop-shadow(0 15px 40px rgba(0,0,0,0.4));
+  animation:heroLogo3D 14s ease-in-out infinite;
+}
+@keyframes heroLogo3D {
+  0%   { transform:perspective(800px) rotateY(-3deg) rotateX(2deg) scale(1.02); }
+  25%  { transform:perspective(800px) rotateY(2deg) rotateX(-1deg) scale(1.04); }
+  50%  { transform:perspective(800px) rotateY(3deg) rotateX(-2deg) scale(1.02); }
+  75%  { transform:perspective(800px) rotateY(-2deg) rotateX(1deg) scale(1.04); }
+  100% { transform:perspective(800px) rotateY(-3deg) rotateX(2deg) scale(1.02); }
 }
 .hero-ceo-fade {
   position:absolute; inset:0;
@@ -1067,10 +1077,16 @@ export default function BasiaBatubatse() {
             <img src="/mahlomola.jpg" alt="Mahlomola" className="founder-photo" />
           </div>
           <div className="founder-info">
-            <h3 className="founder-name">Basia Batubatse</h3>
+            <h3 className="founder-name">Mr Mahlomola Rakgosi</h3>
             <p className="founder-title">Founder & Principal Consultant</p>
             <p className="founder-bio">
-              With a demonstrated focus on claim administration and legal consulting across South Africa's most demanding regulatory frameworks, Basia Batubatse founded the firm to bridge the gap between legal practitioners and the complex documentation requirements of RAF, IOD, Medical Negligence, and Guardian's Fund processes. Her approach is rooted in precision, compliance, and a deep respect for the trust placed in her by attorneys and their clients alike.
+              Mr Mahlomola Rakgosi, is the visionary and brainchild behind the concept that gave birth to Basia Batubatse Consulting. He has extensive knowledge in various fields including marketing and legal, he then identified a gap in the society whereby ordinary folks struggle to access quality and reliable legal representation, thus cleverly bridged that gap by establishing Basia Batubatse Consulting for the sole purpose of bringing such to the people.
+            </p>
+            <p className="founder-bio">
+              With a demonstrated focus on claim administration and legal consulting across South Africa's most demanding regulatory frameworks, Basia Batubatse founded the firm to bridge the gap between legal practitioners and the complex documentation requirements of RAF, IOD, Medical Negligence, and Guardian's Fund processes. His approach is rooted in precision, compliance, and a deep respect for the trust placed in him by attorneys and their clients alike.
+            </p>
+            <p className="founder-bio">
+              Through his leadership, Basia Batubatse Consulting has grown into a trusted name in legal consulting — serving practitioners across all nine provinces with unwavering dedication to accuracy, integrity, and the pursuit of justice for everyday South Africans.
             </p>
             <div className="founder-badges">
               <span className="badge">RAF Specialist</span>
